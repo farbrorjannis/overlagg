@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kompositionshjälp för Konstnärer | Överläggsgenerator</title>
+    <link rel="stylesheet" href="overlagg.css">
+</head>
+<body>
+    <div class="overlagg-container">
+        <header>
+            <h1>📐 Kompositionshjälp – Överläggsgenerator</h1>
+            <p class="subtitle">Ladda upp din bild och prova olika kompositionsprinciper</p>
+        </header>
+
+        <div class="upload-section">
+            <label for="bildUpload" class="upload-label">
+                <span>📁 Välj en bild</span>
+                <input type="file" id="bildUpload" accept="image/*">
+            </label>
+            <p class="small">Ladda upp skiss, foto eller referensbild (JPG, PNG)</p>
+        </div>
+
+        <div class="tools-section">
+            <div class="tool-group">
+                <label for="overlaggTyp">Kompositionshjälp:</label>
+                <select id="overlaggTyp">
+                    <option value="tredjedelar">Tredjedelsregeln (Rule of Thirds)</option>
+                    <option value="gylleneSpiral">Gyllene spiralen (Fibonaccispiral)</option>
+                    <option value="diagonaler">Diagonalmetoden</option>
+                    <option value="gylleneTrianglar">Gyllene trianglar</option>
+                    <option value="rutnat">Rutnät (10×10)</option>
+                    <option value="cirkel">Cirkel / centralpunkt</option>
+                </select>
+            </div>
+
+            <div class="tool-group">
+                <label for="opacitet">Genomskinlighet: <span id="opacitetVarde">50%</span></label>
+                <input type="range" id="opacitet" min="10" max="90" value="50" step="5">
+            </div>
+
+            <div class="tool-group">
+                <label for="fargValj">Färg på överlägg:</label>
+                <select id="fargValj">
+                    <option value="255,255,255">Vit</option>
+                    <option value="255,0,0" selected>Röd</option>
+                    <option value="0,255,0">Grön</option>
+                    <option value="0,0,255">Blå</option>
+                    <option value="255,255,0">Gul</option>
+                    <option value="255,0,255">Magenta</option>
+                </select>
+            </div>
+
+            <button onclick="resetBild()" id="resetBtn">Ta bort bild</button>
+        </div>
+
+        <div class="canvas-container">
+            <canvas id="bildCanvas"></canvas>
+        </div>
+
+        <div class="forklaring">
+            <h3>📋 Om kompositionsprinciperna:</h3>
+            
+            <h4>Tredjedelsregeln</h4>
+            <p>Dela bilden i 9 lika stora delar med två lodräta och två vågräta linjer. Placera viktiga motiv längs linjerna eller i skärningspunkterna för en balanserad komposition.</p>
+            
+            <h4>Gyllene spiralen</h4>
+            <p>Baserad på Fibonaccis talföljd. Spiralen leder betraktarens blick naturligt genom bilden. Placera huvudmotivet i spiralens centrum.</p>
+            
+            <h4>Diagonalmetoden</h4>
+            <p>Dra diagonaler från hörn till hörn. Skapa dynamik och rörelse genom att placera motiv längs diagonalerna.</p>
+            
+            <h4>Gyllene trianglar</h4>
+            <p>Dela bilden med en diagonal, och dra sedan linjer från de övriga hörnen vinkelrätt mot diagonalen. Skapar spänning och balans.</p>
+            
+            <p class="tips">💡 <strong>Tips:</strong> Använd genomskinlighetsreglaget för att anpassa hur tydligt överlägget ska synas. Prova olika färger för bästa kontrast mot din bild.</p>
+        </div>
+    </div>
+
+    <script src="overlagg.js"></script>
+</body>
+</html>
